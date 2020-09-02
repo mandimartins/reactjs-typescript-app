@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import GlobalStyles from './styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import light from './styles/themes/light';
+import dark from './styles/themes/dark';
 
-function App() {
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+
+const App = () => {
+  const [isToggleActive, setIsToggleActive] = useState(true);
+
+  const toggleThemeHandler: () => void = () => {
+    setIsToggleActive(!isToggleActive);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={isToggleActive ? dark : light}>
+      <GlobalStyles />
+      <Header isThemeActive={isToggleActive} toggleTheme={toggleThemeHandler} />
+      <Home />
+      <Footer />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
