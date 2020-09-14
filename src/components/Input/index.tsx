@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Input = (props: any) => {
-  return <Container {...props}>{props.children}</Container>;
+interface IContainerProps {
+  placeholder: string;
+}
+
+const Input: React.FC<IContainerProps> = ({ children, placeholder }) => {
+  return <Container placeholder={placeholder}>{children}</Container>;
 };
 
 export default Input;

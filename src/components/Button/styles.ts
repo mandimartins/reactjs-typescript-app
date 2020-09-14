@@ -9,9 +9,12 @@ export const Container = styled.button`
   color: ${(props) => props.theme.colors.white};
   cursor: pointer;
 
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  transition: opacity 0.5s;
 
   &:hover {
     opacity: 0.8;
+    box-shadow: none;
   }
 `;

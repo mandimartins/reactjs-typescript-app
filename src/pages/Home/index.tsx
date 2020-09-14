@@ -6,7 +6,7 @@ import Card from '../../components/Card';
 
 import { SectionTop, SectionBottom } from './styles';
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <>
       <SectionTop>
@@ -14,9 +14,10 @@ const Home = () => {
         <Button>Add</Button>
       </SectionTop>
       <SectionBottom>
-        <Card>Item</Card>
-        <Card>Item</Card>
-        <Card>Item</Card>
+        <Card title={'item one'} />
+        <Card title={'item two'} />
+        <Card title={'item three'} />
+        <Card title={'item four'} />
       </SectionBottom>
     </>
   );

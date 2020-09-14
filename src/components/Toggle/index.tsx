@@ -2,20 +2,20 @@ import React from 'react';
 
 import { Container, ToggleLable, ToggleSelector } from './styles';
 
-type Props = {
+interface IToggleProps {
   toggleTheme: () => void;
   isThemeActive: boolean;
-};
+}
 
-const Toggle = (props: Props) => {
+const Toggle: React.FC<IToggleProps> = ({ toggleTheme, isThemeActive }) => {
   return (
     <Container>
       <ToggleLable>Light</ToggleLable>
       <ToggleSelector
-        checked={props.isThemeActive}
+        checked={isThemeActive}
         uncheckedIcon={false}
         checkedIcon={false}
-        onChange={props.toggleTheme}
+        onChange={toggleTheme}
       />
       <ToggleLable>Dark</ToggleLable>
     </Container>

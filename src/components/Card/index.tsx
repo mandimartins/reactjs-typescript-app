@@ -2,10 +2,14 @@ import React from 'react';
 
 import { Container, Title, Icon } from './styles';
 
-const Button = (props: any) => {
+interface ITitleProps {
+  title: string;
+}
+
+const Button: React.FC<ITitleProps> = ({ title }) => {
   return (
     <Container>
-      <Title>{props.children}</Title>
+      <Title>{title}</Title>
       <Icon />
     </Container>
   );

@@ -3,19 +3,16 @@ import Toggle from '../Toggle';
 
 import { Container, Title } from './styles';
 
-type Props = {
+interface IHeaderProps {
   toggleTheme: () => void;
   isThemeActive: boolean;
-};
+}
 
-const Header = (props: Props) => {
+const Header: React.FC<IHeaderProps> = ({ isThemeActive, toggleTheme }) => {
   return (
     <Container>
       <Title>TodoList</Title>
-      <Toggle
-        isThemeActive={props.isThemeActive}
-        toggleTheme={props.toggleTheme}
-      />
+      <Toggle isThemeActive={isThemeActive} toggleTheme={toggleTheme} />
     </Container>
   );
 };

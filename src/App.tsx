@@ -8,7 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 
-const App = () => {
+const App: React.FC = () => {
   const [isToggleActive, setIsToggleActive] = useState(true);
 
   const toggleThemeHandler: () => void = () => {
