@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
 import { Container, ToggleLable, ToggleSelector } from './styles';
 
 interface IToggleProps {
   toggleTheme: () => void;
-  isThemeActive: boolean;
 }
 
-const Toggle: React.FC<IToggleProps> = ({ toggleTheme, isThemeActive }) => {
+const Toggle: React.FC<IToggleProps> = ({ toggleTheme }) => {
+  const { title } = useContext(ThemeContext);
+
   return (
     <Container>
       <ToggleLable>Light</ToggleLable>
       <ToggleSelector
-        checked={isThemeActive}
+        checked={title === 'dark'}
         uncheckedIcon={false}
         checkedIcon={false}
         onChange={toggleTheme}

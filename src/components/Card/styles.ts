@@ -10,13 +10,10 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   padding: 1.2rem 2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-
   transition: all 0.3s;
   &:hover {
     opacity: 0.8;
     transform: translateX(1rem);
-    box-shadow: none;
   }
 `;
 
@@ -28,4 +25,5 @@ export const Title = styled.h1`
 export const Icon = styled(HiX)`
   font-size: 2.8rem;
   color: ${(props) => props.theme.colors.action};
+  cursor: pointer;
 `;

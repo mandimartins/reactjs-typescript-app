@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GlobalStyles from './styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './pages/Home';
 
-const App: React.FC = () => {
-  const [isToggleActive, setIsToggleActive] = useState(true);
+import { useTheme } from './utils/usePersistedState';
 
-  const toggleThemeHandler: () => void = () => {
-    setIsToggleActive(!isToggleActive);
+const App: React.FC = () => {
+  const [theme, setTheme] = useTheme('theme', light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light);
   };
 
   return (
-    <ThemeProvider theme={isToggleActive ? dark : light}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Header isThemeActive={isToggleActive} toggleTheme={toggleThemeHandler} />
+      <Header isThemeActive={theme} toggleTheme={toggleTheme} />
       <Home />
-      <Footer />
     </ThemeProvider>
   );
 };

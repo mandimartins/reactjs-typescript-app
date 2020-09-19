@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Button: React.FC = ({ children }) => {
-  return <Container>{children}</Container>;
+interface IButtonProps {
+  onSaveHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const Button: React.FC<IButtonProps> = ({ children, onSaveHandler }) => {
+  return <Container onClick={onSaveHandler}>{children}</Container>;
 };
 
 export default Button;

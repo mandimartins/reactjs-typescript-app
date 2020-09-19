@@ -12,7 +12,7 @@ const Header: React.FC<IHeaderProps> = ({ isThemeActive, toggleTheme }) => {
   return (
     <Container>
       <Title>TodoList</Title>
-      <Toggle isThemeActive={isThemeActive} toggleTheme={toggleTheme} />
+      <Toggle toggleTheme={toggleTheme} />
     </Container>
   );
 };

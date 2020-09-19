@@ -2,15 +2,16 @@ import React from 'react';
 
 import { Container, Title, Icon } from './styles';
 
-interface ITitleProps {
+interface IButtonProps {
   title: string;
+  onDeleteHandler: () => void;
 }
 
-const Button: React.FC<ITitleProps> = ({ title }) => {
+const Button: React.FC<IButtonProps> = ({ title, onDeleteHandler }) => {
   return (
     <Container>
       <Title>{title}</Title>
-      <Icon />
+      <Icon onClick={onDeleteHandler} />
     </Container>
   );
 };
